@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/Framework/App/Manifest/Schema/manifest-1.0.xsd">
+    <meta>
+        <name>TestAppScriptConditions</name>
+        <label>Test App Script Conditions</label>
+        <label lang="de-DE">Test App Script Conditions</label>
+        <description>Test</description>
+        <description lang="de-DE">Tests</description>
+        <version>1.2.2</version>
+        <license>MIT</license>
+    </meta>
+    <custom-fields>
+        <custom-field-set>
+            <name>swag_example_set</name>
+            <label>Example Set</label>
+            <label lang="de-DE">Beispiel-Set</label>
+            <related-entities>
+                <product/>
+            </related-entities>
+            <fields>
+                <multi-entity-select name="swag_entity_select">
+                    <position>1</position>
+                    <label>Example field</label>
+                    <entity>product</entity>
+                </multi-entity-select>
+            </fields>
+        </custom-field-set>
+    </custom-fields>
+    <rule-conditions>
+        <rule-condition>
+            <identifier>testcondition</identifier>
+            <name>Custom entity multi select</name>
+            <group>misc</group>
+            <script>test01.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <multi-entity-select name="customerGroupIds">
+                    <placeholder>Choose customer groups...</placeholder>
+                    <entity>customer_group</entity>
+                    <required>true</required>
+                </multi-entity-select>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition2</identifier>
+            <name>Custom text</name>
+            <name lang="de-DE">Eigene text Bedingung</name>
+            <group>misc</group>
+            <script>test02.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <placeholder lang="de-DE">Bitte Operatoren wählen</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                            <name lang="de-DE">Ist gleich</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                            <name lang="de-DE">Ist nicht gleich</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <text name="firstName">
+                    <placeholder>Enter the first name</placeholder>
+                    <placeholder lang="de-DE">Bitte Vornamen eingeben</placeholder>
+                    <required>true</required>
+                </text>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition3</identifier>
+            <name>Custom int</name>
+            <group>misc</group>
+            <script>test03.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                        <option value="&gt;">
+                            <name>Greater than</name>
+                        </option>
+                        <option value="&lt;">
+                            <name>Less than</name>
+                        </option>
+                        <option value="&gt;=">
+                            <name>Greater than/equal</name>
+                        </option>
+                        <option value="&lt;=">
+                            <name>Less than/equal</name>
+                        </option>
+                        <option value="empty">
+                            <name>Empty</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <int name="number">
+                    <placeholder>Enter integer</placeholder>
+                    <required>true</required>
+                </int>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition4</identifier>
+            <name>Custom float</name>
+            <group>item</group>
+            <script>test04.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                        <option value="&gt;">
+                            <name>Greater than</name>
+                        </option>
+                        <option value="&lt;">
+                            <name>Less than</name>
+                        </option>
+                        <option value="&gt;=">
+                            <name>Greater than/equal</name>
+                        </option>
+                        <option value="&lt;=">
+                            <name>Less than/equal</name>
+                        </option>
+                        <option value="empty">
+                            <name>Empty</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <float name="number">
+                    <placeholder>Enter float...</placeholder>
+                    <required>true</required>
+                </float>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition5</identifier>
+            <name>Custom entity single select</name>
+            <group>misc</group>
+            <script>test05.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <single-entity-select name="productId">
+                    <placeholder>Choose product...</placeholder>
+                    <entity>product</entity>
+                    <required>true</required>
+                </single-entity-select>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition6</identifier>
+            <name>Custom bool</name>
+            <group>misc</group>
+            <script>test06.twig</script>
+            <constraints>
+                <bool name="expected">
+                </bool>
+                <single-select name="expected">
+                    <options>
+                        <option value="true">
+                            <name>True</name>
+                        </option>
+                        <option value="false">
+                            <name>False</name>
+                        </option>
+                    </options>
+                </single-select>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition7</identifier>
+            <name>Custom date</name>
+            <group>misc</group>
+            <script>test07.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                        <option value="&gt;">
+                            <name>Greater than</name>
+                        </option>
+                        <option value="&lt;">
+                            <name>Less than</name>
+                        </option>
+                        <option value="&gt;=">
+                            <name>Greater than/equal</name>
+                        </option>
+                        <option value="&lt;=">
+                            <name>Less than/equal</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <datetime name="datetime">
+                    <required>true</required>
+                </datetime>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition8</identifier>
+            <name>Custom color</name>
+            <group>misc</group>
+            <script>test08.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <color-picker name="colorcode">
+                    <required>true</required>
+                </color-picker>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition9</identifier>
+            <name>Custom media</name>
+            <group>misc</group>
+            <script>test09.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <media-selection name="mediaId">
+                    <required>true</required>
+                </media-selection>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition10</identifier>
+            <name>Custom price</name>
+            <group>misc</group>
+            <script>test10.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                        <option value="&gt;">
+                            <name>Greater than</name>
+                        </option>
+                        <option value="&lt;">
+                            <name>Less than</name>
+                        </option>
+                        <option value="&gt;=">
+                            <name>Greater than/equal</name>
+                        </option>
+                        <option value="&lt;=">
+                            <name>Less than/equal</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <price name="price">
+                    <required>true</required>
+                </price>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition11</identifier>
+            <name>Custom text area</name>
+            <group>misc</group>
+            <script>test11.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <text-area name="firstName">
+                    <placeholder>Enter first name...</placeholder>
+                    <required>true</required>
+                </text-area>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition12</identifier>
+            <name>Custom multi select</name>
+            <group>misc</group>
+            <script>test12.twig</script>
+            <constraints>
+                <single-select name="operator">
+                    <placeholder>Choose an operator...</placeholder>
+                    <options>
+                        <option value="=">
+                            <name>Is equal to</name>
+                        </option>
+                        <option value="!=">
+                            <name>Is not equal to</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </single-select>
+                <multi-select name="multiselection">
+                    <placeholder>Choose values...</placeholder>
+                    <options>
+                        <option value="product">
+                            <name>Product</name>
+                        </option>
+                        <option value="promotion">
+                            <name>Promotion</name>
+                        </option>
+                    </options>
+                    <required>true</required>
+                </multi-select>
+            </constraints>
+        </rule-condition>
+        <rule-condition>
+            <identifier>testcondition13</identifier>
+            <name>Custom without values</name>
+            <group>misc</group>
+            <script>test13.twig</script>
+        </rule-condition>
+    </rule-conditions>
+</manifest>

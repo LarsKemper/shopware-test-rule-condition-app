@@ -1,0 +1,8 @@
+{% set price = hook.page.product.getCalculatedPrice() %}
+
+{% do price.assign({ 'unitPrice': 5 }) %}
+{# will only work if product already has a list price #}
+{% if price.getListPrice() is object %}
+    {% do price.getListPrice().assign({ 'price': 10, 'discount': -5, 'percentage': 50 }) %}
+{% endif %}
+

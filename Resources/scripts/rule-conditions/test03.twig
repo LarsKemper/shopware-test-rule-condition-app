@@ -1,0 +1,11 @@
+{% if scope.cart is not defined %}
+    {% return false %}
+{% endif %}
+
+{% for lineItem in scope.cart.lineItems.getFlat() %}
+    {% if compare(operator, lineItem.quantity, number) %}
+        {% return true %}
+    {% endif %}
+{% endfor %}
+
+{% return false %}

@@ -1,0 +1,5 @@
+{% if scope.customer is not defined %}
+    {% return false %}
+{% endif %}
+
+{% return compare(operator, scope.customer.firstName, firstName) %}

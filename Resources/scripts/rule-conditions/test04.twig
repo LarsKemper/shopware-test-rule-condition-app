@@ -1,0 +1,15 @@
+{% if scope.lineItem is defined %}
+    {% return compare(operator, scope.lineItem.price.totalPrice, number) %}
+{% endif %}
+
+{% if scope.cart is not defined %}
+    {% return false %}
+{% endif %}
+
+{% for lineItem in scope.cart.lineItems.getFlat() %}
+    {% if compare(operator, lineItem.price.totalPrice, number) %}
+        {% return true %}
+    {% endif %}
+{% endfor %}
+
+{% return false %}
